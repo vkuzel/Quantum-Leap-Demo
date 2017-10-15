@@ -1,0 +1,3 @@
+[submodule "quantumleap"]
+	path = quantumleap
+	url = https://github.com/vkuzel/Quantum-Leap.git
