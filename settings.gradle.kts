@@ -1,10 +1,14 @@
-includeBuild("quantumleap/gradle-plugins")
+pluginManagement {
+    repositories {
+        mavenCentral()
+        maven(url = "https://jitpack.io")
+    }
+}
 
 include("core", "admin")
 
 for (child in rootProject.children) {
-    val projectDirName = "quantumleap/${child.name}"
-    child.projectDir = File(settingsDir, projectDirName)
+    child.projectDir = File(settingsDir, "quantumleap/${child.name}")
     assert(child.projectDir.isDirectory)
     assert(child.buildFile.isFile)
 }

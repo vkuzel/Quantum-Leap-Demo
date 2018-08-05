@@ -1,23 +1,11 @@
-buildscript {
-    repositories {
-        mavenCentral()
-        maven(url = "https://jitpack.io")
-    }
-    dependencies {
-        classpath("cz.quantumleap:gradle-plugins")
-    }
+plugins {
+    id("com.github.vkuzel.Quantum-Leap-Gradle-Plugin") version "2.0.3-3"
 }
 
-apply {
-    plugin("cz.quantumleap")
-}
+version = "0.0.1-SNAPSHOT"
 
 dependencies {
-    add("compile", project("core"))
-    add("compile", project("admin"))
-    add("testCompile", "org.springframework.boot:spring-boot-starter-test")
+    implementation(project("core"))
+    implementation(project("admin"))
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
-
-val jar: Jar by tasks
-jar.baseName = "demo"
-jar.version = "0.0.1-SNAPSHOT"

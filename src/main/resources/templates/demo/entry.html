@@ -18,6 +18,10 @@
 <body class="container d-flex h-100">
 
 <div class="align-self-center w-100 text-center">
+    <div th:if="${param.error}" class="alert alert-danger" role="alert">
+        Your email is not registered!
+    </div>
+
     <h1>Quantum Leap</h1>
     <a th:href="@{/dashboard}" class="btn btn-lg btn-primary btn-google">
         <span class="fa fa-google mr-1"></span>
