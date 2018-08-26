@@ -1,5 +1,5 @@
 plugins {
-    id("com.github.vkuzel.Quantum-Leap-Gradle-Plugin") version "2.0.3-5"
+    id("com.github.vkuzel.Quantum-Leap-Gradle-Plugin") version "2.0.3-6"
 }
 
 version = "0.0.1-SNAPSHOT"
