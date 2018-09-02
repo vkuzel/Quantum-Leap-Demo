@@ -1,12 +1,13 @@
 package cz.quantumleap.demo;
 
 import cz.quantumleap.admin.dashboard.DashboardWidget;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-//@Component
+@Component
 public class DashboardWidgetExample implements DashboardWidget<List<Integer>> {
 
     @Override
