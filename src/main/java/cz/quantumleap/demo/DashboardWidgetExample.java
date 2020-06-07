@@ -3,12 +3,14 @@ package cz.quantumleap.demo;
 import cz.quantumleap.admin.dashboard.DashboardWidget;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.stream.Collectors;
 
 @Component
-public class DashboardWidgetExample implements DashboardWidget<List<Integer>> {
+public class DashboardWidgetExample implements DashboardWidget {
 
     @Override
     public Position getPosition() {
@@ -21,8 +23,8 @@ public class DashboardWidgetExample implements DashboardWidget<List<Integer>> {
     }
 
     @Override
-    public ModelAttribute<List<Integer>> getModelModelAttribute() {
+    public Map<String, Object> getModelAttributes() {
         List<Integer> model = new Random().ints(14, 5_000, 35_000).boxed().collect(Collectors.toList());
-        return new ModelAttribute<>("dashboardWidgetExample", model);
+        return Collections.singletonMap("dashboardWidgetExample", model);
     }
 }

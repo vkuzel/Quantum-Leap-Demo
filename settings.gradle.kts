@@ -5,7 +5,7 @@ pluginManagement {
     }
 }
 
-include("core", "admin")
+include("core", "coretest", "admin")
 
 for (child in rootProject.children) {
     child.projectDir = File(settingsDir, "quantumleap/${child.name}")
