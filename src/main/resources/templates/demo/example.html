@@ -1,0 +1,65 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+<head>
+</head>
+<body>
+
+<main layout:fragment="content">
+    <form th:action="${#httpServletRequest.requestURI}" th:object="${example}" method="post">
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-file"></i>
+                <span th:text="#{admin.title.example}">Person</span>
+            </div>
+            <div class="card-body">
+                <input type="hidden" th:if="*{id}" th:field="*{id}">
+
+                <div th:if="${saved}" th:text="#{admin.saved-msg}" class="alert alert-success" role="alert">
+                    Detail has been successfully saved!
+                </div>
+                <div class="alert alert-danger" role="alert" th:if="${#fields.hasGlobalErrors()}" th:each="err : ${#fields.globalErrors()}" th:text="${err}">
+                    This is a danger alert—check it out!
+                </div>
+
+                <div class="form-group row">
+                    <label th:for="textField" class="col-form-label col-md-2" th:text="#{admin.example.text-field}">Text field</label>
+                    <div class="col-md-4">
+                        <input th:field="*{textField}" class="form-control">
+                    </div>
+                    <label th:for="enumField" class="col-form-label col-md-2" th:text="#{admin.example.enum-field}">Enum field</label>
+                    <div class="col-md-4">
+                        <select id="enumField" name="enumField" th:value="*{enumField.id}" required class="form-control">
+                            <option th:each="valueLabel : ${@enumManager.getValueLabels('EXAMPLE_ENUM')}"
+                                    th:value="${valueLabel.id}" th:text="${valueLabel.label}"
+                                    th:selected="*{enumField.id} == ${valueLabel.id}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label th:for="setField[]" class="col-form-label col-md-2" th:text="#{admin.example.set-field}">Set field</label>
+                    <div class="col-md-4">
+                        <div class="form-check form-check-inline" th:each="valueLabel, stat : ${@enumManager.getValueLabels('EXAMPLE_ENUM')}">
+                            <input class="form-check-input" type="checkbox" th:id="|setField${stat.index}|" name="setField[]" th:value="${valueLabel.id}" th:checked="${example.setField.containsValueId(valueLabel.id)}">
+                            <label class="form-check-label" th:for="|setField${stat.index}|" th:text="${valueLabel.label}">Value 1</label>
+                        </div>
+                    </div>
+                    <label for="lookupField" class="col-md-2 col-form-label"
+                           th:text="#{admin.example.lookup-field}">Lookup field</label>
+                    <div class="col-md-4"
+                         th:insert="admin/components/lookup-field::lookup(entityIdentifier='core.person',fieldName='lookupField',fieldId='lookupField',field=*{lookupField},modalTitle=#{admin.lookup.modal.title.people})">
+                    </div>
+
+                </div>
+
+                <div class="text-right">
+                    <a th:href="@{/examples}" class="btn btn-secondary" th:text="#{admin.cancel}">Cancel</a>
+                    <input type="submit" class="btn btn-success" name="save" value="Save" th:value="#{admin.save}">
+                </div>
+            </div>
+        </div>
+    </form>
+</main>
+
+</body>
+</html>
