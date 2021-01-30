@@ -1,6 +1,5 @@
 package cz.quantumleap.demo.example.transport;
 
-import cz.quantumleap.core.data.transport.EnumValue;
 import cz.quantumleap.core.data.transport.Lookup;
 import cz.quantumleap.core.data.transport.SetValues;
 import cz.quantumleap.core.tables.PersonTable;
@@ -13,7 +12,7 @@ public class Example {
     @NotNull
     private String textField;
     @NotNull
-    private EnumValue enumField = new EnumValue();
+    private String enumField;
     @NotNull
     private SetValues setField = new SetValues();
     @NotNull
@@ -35,11 +34,11 @@ public class Example {
         this.textField = textField;
     }
 
-    public EnumValue getEnumField() {
+    public String getEnumField() {
         return enumField;
     }
 
-    public void setEnumField(EnumValue enumField) {
+    public void setEnumField(String enumField) {
         this.enumField = enumField;
     }
 

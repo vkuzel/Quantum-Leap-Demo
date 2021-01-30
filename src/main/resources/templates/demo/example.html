@@ -29,10 +29,10 @@
                     </div>
                     <label th:for="enumField" class="col-form-label col-md-2" th:text="#{admin.example.enum-field}">Enum field</label>
                     <div class="col-md-4">
-                        <select id="enumField" name="enumField" th:value="*{enumField.id}" required class="form-control">
+                        <select id="enumField" name="enumField" th:value="*{enumField}" required class="form-control">
                             <option th:each="valueLabel : ${@enumManager.getValueLabels('EXAMPLE_ENUM')}"
                                     th:value="${valueLabel.id}" th:text="${valueLabel.label}"
-                                    th:selected="*{enumField.id} == ${valueLabel.id}"></option>
+                                    th:selected="*{enumField} == ${valueLabel.id}"></option>
                         </select>
                     </div>
                 </div>
