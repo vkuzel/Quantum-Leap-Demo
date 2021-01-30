@@ -25,7 +25,8 @@
                 <div class="form-group row">
                     <label th:for="textField" class="col-form-label col-md-2" th:text="#{admin.example.text-field}">Text field</label>
                     <div class="col-md-4">
-                        <input th:field="*{textField}" class="form-control">
+                        <input th:field="*{textField}" class="form-control" th:errorclass="is-invalid">
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('textField')}" th:errors="*{textField}">Error</div>
                     </div>
                     <label th:for="enumField" class="col-form-label col-md-2" th:text="#{admin.example.enum-field}">Enum field</label>
                     <div class="col-md-4">
@@ -40,7 +41,7 @@
                     <label th:for="setField[]" class="col-form-label col-md-2" th:text="#{admin.example.set-field}">Set field</label>
                     <div class="col-md-4">
                         <div class="form-check form-check-inline" th:each="valueLabel, stat : ${@enumManager.getValueLabels('EXAMPLE_ENUM')}">
-                            <input class="form-check-input" type="checkbox" th:id="|setField${stat.index}|" name="setField[]" th:value="${valueLabel.id}" th:checked="${example.setField.containsValueId(valueLabel.id)}">
+                            <input class="form-check-input" type="checkbox" th:id="|setField${stat.index}|" name="setField[]" th:value="${valueLabel.id}" th:checked="${example.setField != null && example.setField.contains(valueLabel.id)}">
                             <label class="form-check-label" th:for="|setField${stat.index}|" th:text="${valueLabel.label}">Value 1</label>
                         </div>
                     </div>

@@ -1,10 +1,10 @@
 package cz.quantumleap.demo.example.transport;
 
 import cz.quantumleap.core.data.transport.Lookup;
-import cz.quantumleap.core.data.transport.SetValues;
 import cz.quantumleap.core.tables.PersonTable;
 
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 public class Example {
 
@@ -14,7 +14,7 @@ public class Example {
     @NotNull
     private String enumField;
     @NotNull
-    private SetValues setField = new SetValues();
+    private Set<String> setField;
     @NotNull
     private Lookup<PersonTable> lookupField = new Lookup<>();
 
@@ -42,11 +42,11 @@ public class Example {
         this.enumField = enumField;
     }
 
-    public SetValues getSetField() {
+    public Set<String> getSetField() {
         return setField;
     }
 
-    public void setSetField(SetValues setField) {
+    public void setSetField(Set<String> setField) {
         this.setField = setField;
     }
 
