@@ -48,7 +48,7 @@
                     <label for="lookupField" class="col-md-2 col-form-label"
                            th:text="#{admin.example.lookup-field}">Lookup field</label>
                     <div class="col-md-4"
-                         th:insert="admin/components/lookup-field::lookup(entityIdentifier='core.person',fieldName='lookupField',fieldId='lookupField',field=*{lookupField},modalTitle=#{admin.lookup.modal.title.people})">
+                         th:insert="admin/components/lookup-field::lookup(entityIdentifier='core.person',fieldId='lookupField',value=*{lookupField},modalTitle=#{admin.lookup.modal.title.people})">
                     </div>
 
                 </div>

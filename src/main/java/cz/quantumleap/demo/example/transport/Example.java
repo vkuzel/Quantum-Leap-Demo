@@ -1,8 +1,5 @@
 package cz.quantumleap.demo.example.transport;
 
-import cz.quantumleap.core.data.transport.Lookup;
-import cz.quantumleap.core.tables.PersonTable;
-
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
@@ -16,7 +13,7 @@ public class Example {
     @NotNull
     private Set<String> setField;
     @NotNull
-    private Lookup<PersonTable> lookupField = new Lookup<>();
+    private Long lookupField;
 
     public Long getId() {
         return id;
@@ -50,11 +47,11 @@ public class Example {
         this.setField = setField;
     }
 
-    public Lookup<PersonTable> getLookupField() {
+    public Long getLookupField() {
         return lookupField;
     }
 
-    public void setLookupField(Lookup<PersonTable> lookupField) {
+    public void setLookupField(Long lookupField) {
         this.lookupField = lookupField;
     }
 }
