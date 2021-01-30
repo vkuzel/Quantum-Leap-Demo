@@ -1,7 +1,7 @@
-generated/
 build/
 out/
 classes/
+storage/
 .idea
 *.iml
 .gradle
