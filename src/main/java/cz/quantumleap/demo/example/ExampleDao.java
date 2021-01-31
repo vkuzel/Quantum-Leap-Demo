@@ -2,8 +2,6 @@ package cz.quantumleap.demo.example;
 
 import cz.quantumleap.core.common.Utils;
 import cz.quantumleap.core.data.DaoStub;
-import cz.quantumleap.core.data.EnumManager;
-import cz.quantumleap.core.data.LookupDaoManager;
 import cz.quantumleap.core.data.RecordAuditor;
 import cz.quantumleap.core.data.entity.Entity;
 import cz.quantumleap.core.data.entity.EntityIdentifier;
@@ -18,8 +16,8 @@ import static cz.quantumleap.quantum_leap_demo.tables.ExampleTable.EXAMPLE;
 @Repository
 public class ExampleDao extends DaoStub<ExampleTable> {
 
-    protected ExampleDao(DSLContext dslContext, LookupDaoManager lookupDaoManager, EnumManager enumManager, RecordAuditor recordAuditor) {
-        super(createEntity(), dslContext, lookupDaoManager, enumManager, recordAuditor);
+    protected ExampleDao(DSLContext dslContext, RecordAuditor recordAuditor) {
+        super(createEntity(), dslContext, recordAuditor);
     }
 
     private static Entity<ExampleTable> createEntity() {
