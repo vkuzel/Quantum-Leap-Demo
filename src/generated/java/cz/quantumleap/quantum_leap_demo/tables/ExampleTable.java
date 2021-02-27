@@ -7,24 +7,13 @@ package cz.quantumleap.quantum_leap_demo.tables;
 import cz.quantumleap.quantum_leap_demo.Keys;
 import cz.quantumleap.quantum_leap_demo.QuantumLeapDemo;
 import cz.quantumleap.quantum_leap_demo.tables.records.ExampleRecord;
-
-import java.util.Arrays;
-import java.util.List;
-
-import org.jooq.Field;
-import org.jooq.ForeignKey;
-import org.jooq.Identity;
-import org.jooq.Name;
-import org.jooq.Record;
-import org.jooq.Row5;
-import org.jooq.Schema;
-import org.jooq.Table;
-import org.jooq.TableField;
-import org.jooq.TableOptions;
-import org.jooq.UniqueKey;
+import org.jooq.*;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
+
+import java.util.Arrays;
+import java.util.List;
 
 
 /**
@@ -72,6 +61,11 @@ public class ExampleTable extends TableImpl<ExampleRecord> {
      * The column <code>quantum_leap_demo.example.lookup_field</code>.
      */
     public final TableField<ExampleRecord, Long> LOOKUP_FIELD = createField(DSL.name("lookup_field"), SQLDataType.BIGINT.nullable(false), this, "");
+
+    /**
+     * The column <code>quantum_leap_demo.example.json_field</code>.
+     */
+    public final TableField<ExampleRecord, JSON> JSON_FIELD = createField(DSL.name("json_field"), SQLDataType.JSON.nullable(false).defaultValue(DSL.field("'{}'::json", SQLDataType.JSON)), this, "");
 
     private ExampleTable(Name alias, Table<ExampleRecord> aliased) {
         this(alias, aliased, null);
@@ -153,11 +147,11 @@ public class ExampleTable extends TableImpl<ExampleRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row5 type methods
+    // Row6 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<Long, String, String, String[], Long> fieldsRow() {
-        return (Row5) super.fieldsRow();
+    public Row6<Long, String, String, String[], Long, JSON> fieldsRow() {
+        return (Row6) super.fieldsRow();
     }
 }

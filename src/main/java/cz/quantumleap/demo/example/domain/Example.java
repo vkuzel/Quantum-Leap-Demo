@@ -14,6 +14,8 @@ public class Example {
     private Set<String> setField;
     @NotNull
     private Long lookupField;
+    @NotNull
+    private JsonField jsonField = new JsonField();
 
     public Long getId() {
         return id;
@@ -53,5 +55,35 @@ public class Example {
 
     public void setLookupField(Long lookupField) {
         this.lookupField = lookupField;
+    }
+
+    public JsonField getJsonField() {
+        return jsonField;
+    }
+
+    public void setJsonField(JsonField jsonField) {
+        this.jsonField = jsonField;
+    }
+
+    public static class JsonField {
+
+        private boolean boolean1;
+        private boolean boolean2;
+
+        public boolean isBoolean1() {
+            return boolean1;
+        }
+
+        public void setBoolean1(boolean boolean1) {
+            this.boolean1 = boolean1;
+        }
+
+        public boolean isBoolean2() {
+            return boolean2;
+        }
+
+        public void setBoolean2(boolean boolean2) {
+            this.boolean2 = boolean2;
+        }
     }
 }

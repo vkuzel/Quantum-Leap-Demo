@@ -5,5 +5,6 @@ CREATE TABLE quantum_leap_demo.example (
     text_field   VARCHAR   NOT NULL,
     enum_field   VARCHAR   NOT NULL,
     set_field    VARCHAR[] NOT NULL,
-    lookup_field BIGINT    NOT NULL REFERENCES core.person
+    lookup_field BIGINT    NOT NULL REFERENCES core.person,
+    json_field   JSON      NOT NULL DEFAULT '{}'
 );
