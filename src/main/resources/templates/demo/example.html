@@ -31,7 +31,7 @@
                     <label th:for="enumField" class="col-form-label col-md-2" th:text="#{admin.example.enum-field}">Enum field</label>
                     <div class="col-md-4">
                         <select id="enumField" name="enumField" th:value="*{enumField}" required class="form-control">
-                            <option th:each="valueLabel : ${@enumManager.getValueLabels('EXAMPLE_ENUM')}"
+                            <option th:each="valueLabel : ${@enumRegistry.getValueLabels('EXAMPLE_ENUM')}"
                                     th:value="${valueLabel.id}" th:text="${valueLabel.label}"
                                     th:selected="*{enumField} == ${valueLabel.id}"></option>
                         </select>
@@ -40,7 +40,7 @@
                 <div class="form-group row">
                     <label th:for="setField[]" class="col-form-label col-md-2" th:text="#{admin.example.set-field}">Set field</label>
                     <div class="col-md-4">
-                        <div class="form-check form-check-inline" th:each="valueLabel, stat : ${@enumManager.getValueLabels('EXAMPLE_ENUM')}">
+                        <div class="form-check form-check-inline" th:each="valueLabel, stat : ${@enumRegistry.getValueLabels('EXAMPLE_ENUM')}">
                             <input class="form-check-input" type="checkbox" th:id="|setField${stat.index}|" name="setField[]" th:value="${valueLabel.id}" th:checked="${example.setField != null && example.setField.contains(valueLabel.id)}">
                             <label class="form-check-label" th:for="|setField${stat.index}|" th:text="${valueLabel.label}">Value 1</label>
                         </div>
