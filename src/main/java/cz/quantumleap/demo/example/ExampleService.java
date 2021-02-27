@@ -1,7 +1,7 @@
 package cz.quantumleap.demo.example;
 
 import cz.quantumleap.core.business.ServiceStub;
-import cz.quantumleap.demo.example.transport.Example;
+import cz.quantumleap.demo.example.domain.Example;
 import org.springframework.stereotype.Service;
 
 @Service

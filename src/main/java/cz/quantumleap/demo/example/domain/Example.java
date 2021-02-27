@@ -1,4 +1,4 @@
-package cz.quantumleap.demo.example.transport;
+package cz.quantumleap.demo.example.domain;
 
 import javax.validation.constraints.NotNull;
 import java.util.Set;
