@@ -1,6 +1,5 @@
 package cz.quantumleap.demo.example;
 
-import cz.quantumleap.core.common.Utils;
 import cz.quantumleap.core.data.DaoStub;
 import cz.quantumleap.core.data.EntityRegistry;
 import cz.quantumleap.core.data.RecordAuditor;
@@ -11,6 +10,7 @@ import org.jooq.Condition;
 import org.jooq.DSLContext;
 import org.springframework.stereotype.Repository;
 
+import static cz.quantumleap.core.data.query.QueryUtils.startsWithIgnoreCase;
 import static cz.quantumleap.core.tables.PersonTable.PERSON;
 import static cz.quantumleap.quantum_leap_demo.tables.ExampleTable.EXAMPLE;
 
@@ -31,6 +31,6 @@ public class ExampleDao extends DaoStub<ExampleTable> {
     }
 
     private static Condition createWordCondition(String text) {
-        return Utils.startsWithIgnoreCase(EXAMPLE.TEXT_FIELD, text);
+        return startsWithIgnoreCase(EXAMPLE.TEXT_FIELD, text);
     }
 }
