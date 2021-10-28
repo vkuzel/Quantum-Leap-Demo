@@ -6,7 +6,7 @@ import cz.quantumleap.admin.menu.AdminMenuItemDefinition;
 import cz.quantumleap.admin.menu.AdminMenuManager;
 import cz.quantumleap.admin.notification.NotificationService;
 import cz.quantumleap.admin.person.PersonService;
-import cz.quantumleap.core.database.domain.SliceRequest;
+import cz.quantumleap.core.database.domain.FetchParams;
 import cz.quantumleap.core.security.WebSecurityExpressionEvaluator;
 import cz.quantumleap.core.view.DefaultDetailController;
 import cz.quantumleap.core.view.DefaultListController;
@@ -34,7 +34,7 @@ public class ExampleController extends AdminController {
 
     private static final String LIST_URL = "/examples";
     private static final String LIST_VIEW = "demo/examples";
-    private static final String AJAX_LIST_VIEW = "admin/components/table";
+    private static final String AJAX_LIST_VIEW = "admin/components/slice";
 
     private final DetailController<Example> detailController;
     private final ListController listController;
@@ -58,7 +58,7 @@ public class ExampleController extends AdminController {
 
     @AdminMenuItemDefinition(title = "admin.menu.examples", fontAwesomeIcon = "fas fa-list")
     @GetMapping(LIST_URL)
-    public String showExamples(SliceRequest sliceRequest, Model model, HttpServletRequest request) {
-        return listController.list(sliceRequest, model, request);
+    public String showExamples(FetchParams fetchParams, Model model, HttpServletRequest request) {
+        return listController.list(fetchParams, model, request);
     }
 }
