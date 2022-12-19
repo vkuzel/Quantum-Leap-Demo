@@ -3,6 +3,7 @@ pluginManagement {
         mavenCentral()
         maven(url = "https://jitpack.io")
     }
+    includeBuild("quantumleap/gradle-plugin")
 }
 
 include("core", "coretest", "admin")
