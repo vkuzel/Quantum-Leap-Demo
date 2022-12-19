@@ -8,6 +8,7 @@ import cz.quantumleap.quantum_leap_demo.Keys;
 import cz.quantumleap.quantum_leap_demo.QuantumLeapDemo;
 import cz.quantumleap.quantum_leap_demo.tables.records.ExampleRecord;
 import org.jooq.*;
+import org.jooq.Record;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
