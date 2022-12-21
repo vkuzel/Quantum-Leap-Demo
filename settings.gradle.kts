@@ -1,8 +1,4 @@
 pluginManagement {
-    repositories {
-        mavenCentral()
-        maven(url = "https://jitpack.io")
-    }
     includeBuild("quantumleap/gradle-plugin")
 }
 
