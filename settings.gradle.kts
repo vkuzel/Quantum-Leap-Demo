@@ -2,6 +2,13 @@ pluginManagement {
     includeBuild("quantumleap/gradle-plugin")
 }
 
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        maven("https://jitpack.io") { name = "JitPack" }
+    }
+}
+
 include("core", "coretest", "admin")
 
 for (child in rootProject.children) {
