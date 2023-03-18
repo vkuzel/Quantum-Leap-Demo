@@ -1,6 +1,7 @@
 package cz.quantumleap.demo.example.domain;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
+
 import java.util.Set;
 
 public class Example {

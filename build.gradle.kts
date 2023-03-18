@@ -5,7 +5,7 @@ plugins {
 version = "0.0.1-SNAPSHOT"
 
 dependencies {
-    implementation(project("core"))
-    implementation(project("admin"))
+    implementation(project("quantumleap:core"))
+    implementation(project("quantumleap:admin"))
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

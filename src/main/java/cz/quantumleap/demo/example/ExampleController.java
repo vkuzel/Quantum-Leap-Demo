@@ -13,6 +13,8 @@ import cz.quantumleap.core.view.DefaultListController;
 import cz.quantumleap.core.view.DetailController;
 import cz.quantumleap.core.view.ListController;
 import cz.quantumleap.demo.example.domain.Example;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,9 +23,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
 @Controller
 @PreAuthorize("hasRole('ADMIN')")
